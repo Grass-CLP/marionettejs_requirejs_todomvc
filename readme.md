@@ -1,12 +1,12 @@
 # marionettejs + requirejs + todomvc
 
 ## バージョンとか
-* jquery:
-* underscorejs:
-* backbonejs :
+* jquery : 2.0.3
+* underscorejs : 1.6.0
+* backbonejs : 1.1.2
 * marionettejs : 2.2.1
-* requirejs:
-* requirejs-text:
+* requirejs : 2.1.15
+* requirejs-text : 2.0.12
 
 ## 作成した理由
-* 最近(2014-10-01)のmarionettejs + requirejs + todomvcのサンプルが見当たらないので作ってみました。
+* 最近(2014-10-01)のmarionettejs + requirejs + todomvcのサンプルが見当たらないのでチャレンジ中です。
