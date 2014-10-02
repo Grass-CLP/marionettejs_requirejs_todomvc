@@ -1,0 +1,14 @@
+span#todo-count
+	strong <%= activeCount %>
+	| 件
+ul#filters
+	li.all
+		a(href="#/") 全件
+	li.active
+		a(href="#/active") 未了
+	li.completed
+		a(href="#/completed") 済み
+| 
+| <button id="clear-completed" type="button" <% if (!completedCount) { %> class="hidden"<% } %>>
+|	完了済みの項目を削除 (<%= completedCount %>件)
+| </button>

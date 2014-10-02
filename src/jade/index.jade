@@ -1,0 +1,25 @@
+doctype
+html(lang="ja")
+	head
+		meta(charset="UTF-8")
+		meta(http-quiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		title Backbon.js - Marionette.js - Requirejs - TodoMVC
+		link(rel="stylesheet", href="bower_components/todomvc-common/base.css")
+		link(rel="stylesheet", href="assets/css/app.css")
+	body
+		section#todoapp
+			header#header
+			section#main
+			footer#footer
+		footer#info
+			p 項目はダブルクリックすると編集出来ます
+			p
+				| Created by 
+				a(href="http://github.com/jsoverson") Jarrod Overson
+				|  and 
+				a(href="http://github.com/derickbailey") Derick Bailey
+				|  using 
+				a(href="http://marionettejs.com") Backbone.Marionette
+		script(type="text/javascript", src="bower_components/requirejs/require.js", data-main="js/main")
+
