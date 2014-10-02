@@ -13,7 +13,7 @@ module.exports = (grunt) ->
         files:['src/coffee/**/*.coffee', 'src/coffee/*.coffee']
       jade:
         tasks: 'jade'
-        files:['src/**/*.jade']
+        files:['src/**/*.jade', 'src/*.jade']
 
     #  ローカルサーバの設定
     connect:
