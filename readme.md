@@ -10,3 +10,6 @@
 
 ## 作成した理由
 * 最近(2014-10-01)のmarionettejs + requirejs + todomvcのサンプルが見当たらないのでチャレンジ中です。
+
+## 参考にしたサイト
+* [Marionette • TodoMVC](http://todomvc.com/labs/architecture-examples/backbone_marionette/)
