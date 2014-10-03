@@ -12,11 +12,13 @@ require.config
 		localstorage:
 			deps: ['backbone']
 			exports: 'Store'
-# 読み込みに問題無いかチェック
+# コレクションとモデルに問題ないかチェック
 require [
-	'marionette'
-], (Marionette) ->
-	app = new Marionette.Application()
-	app.onStart = ->
-		console.log 'app start'
-	app.start()
+	'collections/TodoList'
+], (TodoList) ->
+	list = new TodoList()
+	list.on('add',(todo) ->
+		console.log "title:#{todo.get('title')}"
+	)
+	list.add {title:'test_hoge'}
+	console.log list

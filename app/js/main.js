@@ -16,11 +16,14 @@ require.config({
   }
 });
 
-require(['marionette'], function(Marionette) {
-  var app;
-  app = new Marionette.Application();
-  app.onStart = function() {
-    return console.log('app start');
-  };
-  return app.start();
+require(['collections/TodoList'], function(TodoList) {
+  var list;
+  list = new TodoList();
+  list.on('add', function(todo) {
+    return console.log("title:" + (todo.get('title')));
+  });
+  list.add({
+    title: 'test_hoge'
+  });
+  return console.log(list);
 });
