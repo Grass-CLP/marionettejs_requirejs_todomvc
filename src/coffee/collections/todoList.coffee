@@ -2,7 +2,7 @@ define [
 	'underscore'
 	'backbone'
 	'localstorage'
-	'models/todo' 
+	'models/todo'
 ], (_, Backbone, Store, Todo) ->
 	'use strict'
 
