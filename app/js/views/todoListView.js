@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'marionette', 'App', 'collections/todoList', 'views/todoView', 'text!templates/todoListComposite.html'], function($, _, Marionette, App, TodoList, TodoView, todoListTemp) {
+define(['jquery', 'underscore', 'marionette', 'app', 'collections/todoList', 'views/todoView', 'text!templates/todoListComposite.html'], function($, _, Marionette, App, TodoList, TodoView, todoListTemp) {
   'use strict';
   var TodoListView;
   TodoListView = Marionette.CompositeView.extend({

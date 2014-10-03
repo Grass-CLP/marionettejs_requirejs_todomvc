@@ -2,7 +2,7 @@ define [
 	'jquery'
 	'underscore'
 	'marionette'
-	'App'
+	'app'
 	'collections/todoList'
 	'views/todoView'
 	'text!templates/todoListComposite.html'
