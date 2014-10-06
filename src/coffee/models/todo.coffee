@@ -14,12 +14,14 @@ define [
 			if @isNew()
 				@set 'created', Date.now()
 			return
+		toggle: ->
+			@set 'completed', !@isCompleted()
 
 		isCompleted: ->
 			@get 'completed'
 
 		matchesFilter: (filter) ->
-			if filter == all
+			if filter == 'all'
 				return true
 			if filter == 'active'
 				return !@isCompleted()

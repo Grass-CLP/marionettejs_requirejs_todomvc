@@ -2,11 +2,11 @@ define [
 	'jquery'
 	'underscore'
 	'marionette'
-	'app'
+	'require'
 	'collections/todoList'
 	'views/todoView'
 	'text!templates/todoListComposite.html'
-], ($, _, Marionette, App, TodoList, TodoView, todoListTemp) ->
+], ($, _, Marionette, require, TodoList, TodoView, todoListTemp) ->
 	'use strict'
 
 	TodoListView = Marionette.CompositeView.extend
@@ -19,12 +19,14 @@ define [
 			'click #toggle-all': 'onToggleAllClick'
 		collectionEvents:
 			'all': 'update'
+		getApp: ->
+			require('app')
 		initialize: () ->
-			@listenTo(App.request('filterState'), 'change:filter', @render, @)
+			@listenTo(@getApp().request('filterState'), 'change:filter', @render, @)
 			return
 
 		addChild: (child) ->
-			filteredOn = App.request('filterState').get('filter')
+			filteredOn = @getApp().request('filterState').get('filter')
 			if child.matchesFilter(filteredOn)
 				Marionette.CompositeView.prototype.addChild.apply(@, arguments)
 			return

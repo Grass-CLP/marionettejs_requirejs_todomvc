@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'marionette', 'app', 'collections/todoList', 'views/todoView', 'text!templates/todoListComposite.html'], function($, _, Marionette, App, TodoList, TodoView, todoListTemp) {
+define(['jquery', 'underscore', 'marionette', 'require', 'collections/todoList', 'views/todoView', 'text!templates/todoListComposite.html'], function($, _, Marionette, require, TodoList, TodoView, todoListTemp) {
   'use strict';
   var TodoListView;
   TodoListView = Marionette.CompositeView.extend({
@@ -14,12 +14,15 @@ define(['jquery', 'underscore', 'marionette', 'app', 'collections/todoList', 'vi
     collectionEvents: {
       'all': 'update'
     },
+    getApp: function() {
+      return require('app');
+    },
     initialize: function() {
-      this.listenTo(App.request('filterState'), 'change:filter', this.render, this);
+      this.listenTo(this.getApp().request('filterState'), 'change:filter', this.render, this);
     },
     addChild: function(child) {
       var filteredOn;
-      filteredOn = App.request('filterState').get('filter');
+      filteredOn = this.getApp().request('filterState').get('filter');
       if (child.matchesFilter(filteredOn)) {
         Marionette.CompositeView.prototype.addChild.apply(this, arguments);
       }

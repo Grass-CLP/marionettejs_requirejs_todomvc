@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'marionette', 'app', 'text!templates/footer.html'], function($, _, Marionette, App, footerTemp) {
+define(['jquery', 'underscore', 'marionette', 'require', 'text!templates/footer.html'], function($, _, Marionette, require, footerTemp) {
   'use strict';
   var FooterView;
   FooterView = Marionette.ItemView.extend({
@@ -16,8 +16,11 @@ define(['jquery', 'underscore', 'marionette', 'app', 'text!templates/footer.html
     collectionEvents: {
       'all': 'render'
     },
+    getApp: function() {
+      return require('app');
+    },
     initialize: function() {
-      this.listenTo(App.request('filterState'), 'change:filter', this.updateFilterSelection, this);
+      this.listenTo(this.getApp().request('filterState'), 'change:filter', this.updateFilterSelection, this);
     },
     serializeData: function() {
       var active, total;
@@ -35,7 +38,7 @@ define(['jquery', 'underscore', 'marionette', 'app', 'text!templates/footer.html
     },
     updateFilterSelection: function() {
       this.ui.filters.removeClass('selected');
-      this.ui[App.request('filterState').get('filter')].addClass('selected');
+      this.ui[this.getApp().request('filterState').get('filter')].addClass('selected');
     },
     onClearClick: function() {
       var completed;

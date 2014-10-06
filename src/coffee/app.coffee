@@ -6,14 +6,17 @@ define [
 ], (Backbone, Marionette, Router, Controller) ->
 	'use strict'
 
-	app = new Marionette.Application()
+	controller = new Controller()
+	TodoMVC = Marionette.Application.extend {
+		initialize: (options) ->
+			console.log options
+			@router = new Router {
+				controller: controller
+			}
+			return
+	}
 
-	app.addInitializer( ->
-		router = new Router {
-			controller: new Controller()
-		}
-	)
-
+	app = new TodoMVC()
 	app.addRegions {
 		header: '#header'
 		main: '#main'
@@ -22,6 +25,7 @@ define [
 
 	app.on 'start', ->
 		Backbone.history.start()
+		controller.start()
 		return
 
 	return Window.app = app

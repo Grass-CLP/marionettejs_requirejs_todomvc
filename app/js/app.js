@@ -1,13 +1,16 @@
 define(['backbone', 'marionette', 'routers/index', 'controllers/index'], function(Backbone, Marionette, Router, Controller) {
   'use strict';
-  var app;
-  app = new Marionette.Application();
-  app.addInitializer(function() {
-    var router;
-    return router = new Router({
-      controller: new Controller()
-    });
+  var TodoMVC, app, controller;
+  controller = new Controller();
+  TodoMVC = Marionette.Application.extend({
+    initialize: function(options) {
+      console.log(options);
+      this.router = new Router({
+        controller: controller
+      });
+    }
   });
+  app = new TodoMVC();
   app.addRegions({
     header: '#header',
     main: '#main',
@@ -15,6 +18,7 @@ define(['backbone', 'marionette', 'routers/index', 'controllers/index'], functio
   });
   app.on('start', function() {
     Backbone.history.start();
+    controller.start();
   });
   return Window.app = app;
 });

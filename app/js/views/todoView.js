@@ -51,7 +51,7 @@ define(['jquery', 'underscore', 'marionette', 'text!templates/todoItem.html'], f
       ENTER_KEY = 13;
       ESC_KEY = 27;
       if (e.which === ENTER_KEY) {
-        this.onEditFocusout;
+        this.onEditFocusout();
         return;
       }
       if (e.which === ESC_KEY) {

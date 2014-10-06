@@ -2,9 +2,9 @@ define [
 	'jquery'
 	'underscore'
 	'marionette'
-	'app'
+	'require'
 	'text!templates/footer.html'
-], ($, _, Marionette, App, footerTemp) ->
+], ($, _, Marionette, require, footerTemp) ->
 	'use strict'
 
 	FooterView = Marionette.ItemView.extend
@@ -19,9 +19,12 @@ define [
 			'click #clear-completed': 'onClearClick'
 		collectionEvents:
 			'all': 'render'
-
+		getApp: ->
+			require('app')
 		initialize: ->
-			@listenTo(App.request('filterState'), 'change:filter', @updateFilterSelection, @)
+			# app = require('app')
+			# @listenTo(app.request('filterState'), 'change:filter', @updateFilterSelection, @)
+			@listenTo(@getApp().request('filterState'), 'change:filter', @updateFilterSelection, @)
 			return
 		serializeData: ->
 			active = @collection.getActive().length
@@ -37,8 +40,10 @@ define [
 			return
 
 		updateFilterSelection: ->
+			# app = require('app')
 			@ui.filters.removeClass('selected')
-			@ui[App.request('filterState').get('filter')].addClass('selected')
+			# @ui[app.request('filterState').get('filter')].addClass('selected')
+			@ui[@getApp().request('filterState').get('filter')].addClass('selected')
 			return
 
 		onClearClick: ->

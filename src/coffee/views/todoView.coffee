@@ -57,7 +57,7 @@ define [
 			ESC_KEY = 27
 
 			if e.which == ENTER_KEY
-				@onEditFocusout
+				@onEditFocusout()
 				return
 			if e.which == ESC_KEY
 				@ui.edit.val(@model.get('title'))

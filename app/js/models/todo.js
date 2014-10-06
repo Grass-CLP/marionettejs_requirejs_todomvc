@@ -12,11 +12,14 @@ define(['underscore', 'backbone'], function(_, Backbone) {
         this.set('created', Date.now());
       }
     },
+    toggle: function() {
+      return this.set('completed', !this.isCompleted());
+    },
     isCompleted: function() {
       return this.get('completed');
     },
     matchesFilter: function(filter) {
-      if (filter === all) {
+      if (filter === 'all') {
         return true;
       }
       if (filter === 'active') {

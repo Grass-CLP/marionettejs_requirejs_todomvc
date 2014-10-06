@@ -12,7 +12,7 @@ require.config
 		localstorage:
 			deps: ['backbone']
 			exports: 'Store'
-# コレクションとモデルに問題ないかチェック
+# ruoter用のモデルの設定とアプリスタート
 require [
 	'app'
 	'backbone'
@@ -26,8 +26,5 @@ require [
 		filterState
 
 	app.start()
-	# new Router {controller: Controller}
-
-
 
 	return
