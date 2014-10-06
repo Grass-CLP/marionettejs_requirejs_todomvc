@@ -15,7 +15,7 @@ define [
 		childViewContainer: '#todo-list'
 		ui:
 			toggle: '#toggle-all'
-		events
+		events:
 			'click #toggle-all': 'onToggleAllClick'
 		collectionEvents:
 			'all': 'update'

@@ -14,11 +14,20 @@ require.config
 			exports: 'Store'
 # コレクションとモデルに問題ないかチェック
 require [
-	'collections/TodoList'
-], (TodoList) ->
-	list = new TodoList()
-	list.on('add',(todo) ->
-		console.log "title:#{todo.get('title')}"
-	)
-	list.add {title:'test_hoge'}
-	console.log list
+	'app'
+	'backbone'
+	'routers/index'
+	'controllers/index'
+], (app, Backbone, Router, Controller) ->
+	filterState = new Backbone.Model {
+		filter: 'all'
+	}
+	app.reqres.setHandler 'filterState', ->
+		filterState
+
+	app.start()
+	# new Router {controller: Controller}
+
+
+
+	return

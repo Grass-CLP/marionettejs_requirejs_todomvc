@@ -7,10 +7,10 @@ define(['jquery', 'underscore', 'marionette', 'app', 'collections/todoList', 'vi
     childViewContainer: '#todo-list',
     ui: {
       toggle: '#toggle-all'
-    }
-  }, events({
-    'click #toggle-all': 'onToggleAllClick'
-  }), {
+    },
+    events: {
+      'click #toggle-all': 'onToggleAllClick'
+    },
     collectionEvents: {
       'all': 'update'
     },

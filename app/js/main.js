@@ -16,14 +16,13 @@ require.config({
   }
 });
 
-require(['collections/TodoList'], function(TodoList) {
-  var list;
-  list = new TodoList();
-  list.on('add', function(todo) {
-    return console.log("title:" + (todo.get('title')));
+require(['app', 'backbone', 'routers/index', 'controllers/index'], function(app, Backbone, Router, Controller) {
+  var filterState;
+  filterState = new Backbone.Model({
+    filter: 'all'
   });
-  list.add({
-    title: 'test_hoge'
+  app.reqres.setHandler('filterState', function() {
+    return filterState;
   });
-  return console.log(list);
+  app.start();
 });

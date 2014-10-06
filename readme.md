@@ -13,3 +13,4 @@
 
 ## 参考にしたサイト
 * [Marionette • TodoMVC](http://todomvc.com/labs/architecture-examples/backbone_marionette/)
+* [Backbone.Marionette & Requirejs • TodoMVC](http://todomvc.com/labs/dependency-examples/backbone_marionette_require/)
