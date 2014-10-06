@@ -33,7 +33,7 @@ define(['marionette', 'collections/todoList', 'views/headerView', 'views/footerV
     filterItems: function(filter) {
       var newFilter;
       newFilter = filter && filter.trim() || 'all';
-      Windows.app.request('filterState').set('filter', newFilter);
+      app.request('filterState').set('filter', newFilter);
     }
   });
   return Controller;

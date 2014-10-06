@@ -7,7 +7,6 @@ define [
 	'app'
 ], (Marionette, TodoList, HeaderView, FooterView, TodoListView, app) ->
 	'use strict'
-	# app = Window.app
 
 	Controller = Marionette.Controller.extend {
 		start: ->
@@ -46,7 +45,7 @@ define [
 
 		filterItems: (filter) ->
 			newFilter = filter && filter.trim() || 'all'
-			Windows.app.request('filterState').set('filter', newFilter)
+			app.request('filterState').set('filter', newFilter)
 			return
 
 	}
