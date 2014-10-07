@@ -27,4 +27,4 @@ define [
 				return !@isCompleted()
 			return @isCompleted()
 
-	return Todo
+	Todo

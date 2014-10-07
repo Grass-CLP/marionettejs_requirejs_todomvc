@@ -20,4 +20,4 @@ define [
 			todo.isCompleted()
 
 
-	return TodoList
+	TodoList

@@ -48,4 +48,4 @@ define [
 				return
 			return
 
-	return TodoListView
+	TodoListView

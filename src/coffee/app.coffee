@@ -35,4 +35,4 @@ define [
 		controller.start()
 		return
 
-	return Window.app = app
+	Window.app = app
