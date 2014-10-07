@@ -3,10 +3,9 @@ define [
 	'underscore'
 	'marionette'
 	'require'
-	'collections/todoList'
 	'views/todoView'
 	'text!templates/todoListComposite.html'
-], ($, _, Marionette, require, TodoList, TodoView, todoListTemp) ->
+], ($, _, Marionette, require, TodoView, todoListTemp) ->
 	'use strict'
 
 	TodoListView = Marionette.CompositeView.extend
