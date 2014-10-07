@@ -12,7 +12,7 @@ require.config
 		localstorage:
 			deps: ['backbone']
 			exports: 'Store'
-# ruoter用のモデルの設定とアプリスタート
+# アプリスタート
 require [
 	'app'
 ], (app) ->
