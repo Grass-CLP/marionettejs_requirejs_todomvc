@@ -23,6 +23,13 @@ define [
 		footer: '#footer'
 	}
 
+	filterState = new Backbone.Model {
+		filter: 'all'
+	}
+
+	app.reqres.setHandler 'filterState', ->
+		filterState
+
 	app.on 'start', ->
 		Backbone.history.start()
 		controller.start()

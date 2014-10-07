@@ -15,16 +15,7 @@ require.config
 # ruoter用のモデルの設定とアプリスタート
 require [
 	'app'
-	'backbone'
-	'routers/index'
-	'controllers/index'
-], (app, Backbone, Router, Controller) ->
-	filterState = new Backbone.Model {
-		filter: 'all'
-	}
-	app.reqres.setHandler 'filterState', ->
-		filterState
-
+], (app) ->
 	app.start()
 
 	return

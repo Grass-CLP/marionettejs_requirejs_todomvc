@@ -3,6 +3,9 @@ define(['marionette', 'collections/todoList', 'views/headerView', 'views/footerV
   var Controller;
   Controller = Marionette.Controller.extend({
     todoList: new TodoList(),
+    getApp: function() {
+      return require('app');
+    },
     start: function() {
       this.showHeader(this.todoList);
       this.showFooter(this.todoList);
@@ -10,34 +13,30 @@ define(['marionette', 'collections/todoList', 'views/headerView', 'views/footerV
       this.todoList.fetch();
     },
     showHeader: function(todoList) {
-      var app, header;
-      app = require('app');
+      var header;
       header = new HeaderView({
         collection: todoList
       });
-      app.header.show(header);
+      this.getApp().header.show(header);
     },
     showFooter: function(todoList) {
-      var app, footer;
-      app = require('app');
+      var footer;
       footer = new FooterView({
         collection: todoList
       });
-      app.footer.show(footer);
+      this.getApp().footer.show(footer);
     },
     showTodoList: function(todoList) {
-      var app, todoListView;
-      app = require('app');
+      var todoListView;
       todoListView = new TodoListView({
         collection: todoList
       });
-      app.main.show(todoListView);
+      this.getApp().main.show(todoListView);
     },
     filterItems: function(filter) {
-      var app, newFilter;
-      app = require('app');
+      var newFilter;
       newFilter = filter && filter.trim() || 'all';
-      app.request('filterState').set('filter', newFilter);
+      this.getApp().request('filterState').set('filter', newFilter);
     }
   });
   return Controller;

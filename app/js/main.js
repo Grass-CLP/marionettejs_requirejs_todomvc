@@ -16,13 +16,6 @@ require.config({
   }
 });
 
-require(['app', 'backbone', 'routers/index', 'controllers/index'], function(app, Backbone, Router, Controller) {
-  var filterState;
-  filterState = new Backbone.Model({
-    filter: 'all'
-  });
-  app.reqres.setHandler('filterState', function() {
-    return filterState;
-  });
+require(['app'], function(app) {
   app.start();
 });

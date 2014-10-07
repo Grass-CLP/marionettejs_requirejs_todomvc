@@ -22,8 +22,6 @@ define [
 		getApp: ->
 			require('app')
 		initialize: ->
-			# app = require('app')
-			# @listenTo(app.request('filterState'), 'change:filter', @updateFilterSelection, @)
 			@listenTo(@getApp().request('filterState'), 'change:filter', @updateFilterSelection, @)
 			return
 		serializeData: ->
@@ -40,9 +38,7 @@ define [
 			return
 
 		updateFilterSelection: ->
-			# app = require('app')
 			@ui.filters.removeClass('selected')
-			# @ui[app.request('filterState').get('filter')].addClass('selected')
 			@ui[@getApp().request('filterState').get('filter')].addClass('selected')
 			return
 

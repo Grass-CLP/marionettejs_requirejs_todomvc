@@ -1,6 +1,6 @@
 define(['backbone', 'marionette', 'routers/index', 'controllers/index'], function(Backbone, Marionette, Router, Controller) {
   'use strict';
-  var TodoMVC, app, controller;
+  var TodoMVC, app, controller, filterState;
   controller = new Controller();
   TodoMVC = Marionette.Application.extend({
     initialize: function(options) {
@@ -15,6 +15,12 @@ define(['backbone', 'marionette', 'routers/index', 'controllers/index'], functio
     header: '#header',
     main: '#main',
     footer: '#footer'
+  });
+  filterState = new Backbone.Model({
+    filter: 'all'
+  });
+  app.reqres.setHandler('filterState', function() {
+    return filterState;
   });
   app.on('start', function() {
     Backbone.history.start();
